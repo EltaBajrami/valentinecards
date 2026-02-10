@@ -1,0 +1,324 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #f5b8b5;
+  overflow: hidden;
+}
+
+/* New wrapper to hold chocolateBox and text together */
+.chocolateWrapper {
+  position: relative;
+  /* Optional: set dimensions to match chocolateBox if needed */
+}
+
+/* Chocolate Box Styles */
+.chocolateBox {
+  position: relative;
+  height: 300px;
+  width: 300px;
+  cursor: pointer;
+}
+
+.chocolateBox:before,
+.chocolateBox:after {
+  content: "";
+  position: absolute;
+}
+
+.chocolateBox:before {
+  width: 160px;
+  height: 160px;
+  background-color: #4b301b;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  box-shadow: 10px 10px #392312;
+}
+
+.chocolateBox:after {
+  width: 68px;
+  height: 68px;
+  background-color: #2b0900;
+  top: 81px;
+  left: 80px;
+  box-shadow: 70px 0 #2b0900, 70px 70px #2b0900, 0px 70px #2b0900;
+}
+
+.chocs {
+  position: absolute;
+  z-index: 1;
+}
+
+/* Hotspot Styles */
+.topLeft {
+  top: 92px;
+  left: 90px;
+}
+
+.topLeft:hover {
+  transform: rotate(25deg);
+}
+
+.topLeft:active {
+  opacity: 0;
+}
+
+.bottomRight {
+  left: 162px;
+  top: 162px;
+}
+
+.bottomRight:hover {
+  transform: rotate(25deg);
+}
+
+.bottomRight:active {
+  opacity: 0;
+}
+
+.topLeft,
+.bottomRight {
+  position: absolute;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: #d12511;
+  box-shadow: 20px 0 #d12511;
+  filter: drop-shadow(2px 2px #ab1503) drop-shadow(-2px 2px #ab1503);
+  transition: 0.2s;
+}
+
+.topLeft:after,
+.topLeft:before,
+.bottomRight:before,
+.bottomRight:after {
+  content: "";
+  position: absolute;
+}
+
+.topLeft:before,
+.bottomRight:before {
+  width: 30px;
+  height: 30px;
+  background-color: #d12511;
+  transform: rotate(-45deg);
+  top: 10px;
+  left: 10px;
+}
+
+.topLeft:after,
+.bottomRight:after {
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  width: 10px;
+  height: 10px;
+  top: 5px;
+  left: 35px;
+}
+
+.topRight {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #fee8c0;
+  width: 45px;
+  height: 45px;
+  top: 92px;
+  left: 162px;
+  filter: drop-shadow(2px 2px #ceb587) drop-shadow(-2px 2px #ceb587);
+  overflow: hidden;
+  transition: 0.2s;
+}
+
+/* Added hover and active states for topRight */
+.topRight:hover {
+  transform: rotate(25deg);
+}
+
+.topRight:active {
+  opacity: 0;
+}
+
+.topRight:before,
+.topRight:after {
+  content: "";
+  position: absolute;
+  background-color: #93522b;
+  width: 100px;
+  height: 3px;
+  left: -5px;
+}
+
+.topRight:before {
+  top: 15px;
+  transform: rotate(-35deg);
+  box-shadow: 0 -15px #93522b;
+}
+
+.topRight:after {
+  top: 0;
+  transform: rotate(-15deg);
+  box-shadow: 0 17px #93522b, 0 30px #93522b;
+}
+
+.bottomLeft {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #503520;
+  width: 45px;
+  height: 45px;
+  top: 162px;
+  left: 92px;
+  filter: drop-shadow(2px 2px #342010) drop-shadow(-2px 2px #342010);
+  overflow: hidden;
+  transition: 0.2s;
+}
+
+.bottomLeft:hover {
+  transform: rotate(25deg);
+}
+
+.bottomLeft:active {
+  opacity: 0;
+}
+
+.bottomLeft:before,
+.bottomLeft:after {
+  content: "";
+  position: absolute;
+  background-color: #fde7c7;
+  width: 100px;
+  height: 3px;
+  left: -5px;
+}
+
+.bottomLeft:before {
+  top: 15px;
+  transform: rotate(-35deg);
+  box-shadow: 0 -15px #fde7c7;
+}
+
+.bottomLeft:after {
+  top: 0;
+  transform: rotate(-15deg);
+  box-shadow: 0 17px #fde7c7, 0 30px #fde7c7;
+}
+
+/* Box Bottom and Cover Styles */
+.box-bottom {
+  position: absolute;
+  background-color: #392312;
+  width: 15px;
+  height: 15px;
+  transform: rotate(45deg);
+  left: 222px;
+  top: 73px;
+  z-index: -1;
+  box-shadow: 0px 211px #392312;
+}
+
+.cover {
+  position: absolute;
+  background-color: #cf2611;
+  width: 150px;
+  height: 150px;
+  border: 5px solid #ae1605;
+  z-index: 2;
+  top: 70px;
+  left: 70px;
+  transform-origin: top;
+  transition: 0.2s;
+  overflow: hidden;
+}
+
+.chocolateBox:hover .cover {
+  transform: rotateX(170deg);
+  box-shadow: 5px -5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.chocolateBox:hover .cover:before {
+  display: none;
+}
+
+.cover:before {
+  position: absolute;
+  content: "Hover Me";
+  color: #ffead2;
+  font-family: "Brush Script MT", cursive;
+  padding: 17px 25px;
+  font-size: 35px;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  text-align: center;
+  border: 2px double;
+}
+
+.cover:after {
+  position: absolute;
+  content: "";
+  background-color: #ffead2;
+  height: 10px;
+  width: 100px;
+  transform: rotate(-45deg);
+  left: -20px;
+  box-shadow: -5px 165px #ffead2;
+}
+
+/* New Text Container: absolutely positioned so it overlays beside the chocolateBox without reflowing content */
+.textContainer {
+  position: absolute;
+  left: 320px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-family: "Brush Script MT", cursive;
+  font-size: 32px;
+  color: #e72c2c;
+  margin-bottom: 10px;
+  width: 300px; /* or 250px, etc. */
+  white-space: normal; /* allow text to wrap */
+  word-wrap: break-word; /* ensure it breaks on long words if needed */
+}
+/* Footer and To/From Styles */
+.cite,
+.vc {
+  font-family: "Pacifico";
+  font-style: italic;
+  position: absolute;
+  line-height: 16px;
+  color: #803143;
+  text-align: right;
+  font-size: 16px;
+  right: 0;
+  padding-right: 10px;
+}
+
+.cite {
+  bottom: 20px;
+}
+
+.vc {
+  bottom: 0;
+}
+
+.toFrom {
+  font-family: "Homemade Apple";
+  display: flex;
+  flex-direction: column;
+  color: #362516;
+  text-align: center;
+  line-height: 1;
+  font-size: 25px;
+  justify-content: space-between;
+  margin-top: 30px;
+  gap: 10px;
+}

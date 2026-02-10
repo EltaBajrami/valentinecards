@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="client.js" type="module"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="happy-valentines">
+        <div class="hearts">
+            <div class="one"></div>
+            <div class="two"></div>
+            <div class="three"></div>
+            <div class="four"></div>
+            <div class="five"></div>
+            <div class="six"></div>
+          </div>
+        <img src="./assets/logo.PNG" alt="Logo" class="logo"/>
+        <div class="title">
+            <svg width="1200" height="380">
+                <path id="curve" d="M 20 480 C 0 480, 520 0, 1200 480"></path>  
+                <text class="title" text-anchor="middle">
+                    <textPath class="text__path" href="#curve" startOffset="50%">
+                        Valentine++
+                    </textPath>
+                </text>
+            </svg>
+        </div>
+        <div class="enter">
+            <div class="text">If you're here you must have received a gift from a special someone...</div>
+            <form id="codeForm" class="enter" action="http://localhost:8000/search" method="GET">   
+                <input name="code" type="text" placeholder="Enter your code here!!" class="custom-input" id="inputCode"/>
+                <button type="submit" id="submit">Submit!</button>
+
+            </form>            
+        </div>
+    </div>
+   
+    
+</body>
+</html>
