@@ -41,13 +41,27 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// Load email templates
-const receiverTemplate = fs.readFileSync(path.join(__dirname, "../backend/templates/receiverTemplate.ejs"), "utf-8");
-const senderTemplate = fs.readFileSync(path.join(__dirname, "../backend/templates/senderTemplate.ejs"), "utf-8");
+// Load email templates - paths relative to the api directory
+let receiverTemplate, senderTemplate;
+try {
+  receiverTemplate = fs.readFileSync(path.join(__dirname, "templates/receiverTemplate.ejs"), "utf-8");
+  senderTemplate = fs.readFileSync(path.join(__dirname, "templates/senderTemplate.ejs"), "utf-8");
+} catch (error) {
+  console.error("Error loading email templates:", error);
+  // Templates are optional for basic functionality
+  receiverTemplate = "";
+  senderTemplate = "";
+}
 
 const WEBSITE_URL = process.env.WEBSITE_URL || "http://localhost:5173";
 
 async function sendEmail(document, template, receiver) {
+  // Skip if templates aren't loaded
+  if (!template) {
+    console.log("Skipping email - template not loaded");
+    return;
+  }
+  
   const receiverEmail = document['receiverEmail'];
   const userName = document['receiverName'];
   const redirectLink = document['_id'];
